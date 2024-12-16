@@ -1,0 +1,30 @@
+
+<view class="page">
+  <!--轮播图区域-->
+   <view class="swiper-container">
+    <swiper wx:if="{{swiperList.length}}" bindchange="onSwiperChange">
+      <swiper-item wx:for="{{swiperList}}" wx:key="index">
+        <image bind:tap="onSwiperTab" data-item="{{item}}" mode="aspectFill" src="{{item.imageUri}}"></image>
+      </swiper-item>
+    </swiper> 
+    <view class="dots">
+     <view class="dot {{current!==index || 'active'}}" wx:for="{{swiperList}}"wx:key="index"></view>  
+    </view>
+   </view>
+  <!--会员区域-->
+   <view class="member-area">
+     <view class="vip-box">
+       <image src="../../assets/images/vip_default_icon.jpg"></image>
+       <view class="meta">
+         <view class="title">罗森会员</view>
+         <progress-bar value="10"/>
+         <view class="tips">升级立享【升级礼包】等6项权益</view> 
+       </view>
+     </view>
+
+     <view class="coin-box">
+       <image mode="aspectFill" src="../../assets/images/coin_icon.png"></image>
+       <view class="currency">51</view>
+     </view>
+   </view>
+</view>

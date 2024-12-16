@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/menu/index",
+    "pages/order/index",
+    "pages/me/index",
+    "pages/web-view/index",
+    "pages/product/detail"
+
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "weixin",
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#fefefe"
+
+  },
+  "tabBar": {
+    "color": "#797979",
+    "selectedColor": "0073be",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "./assets/images/Takamatsu_Tomori_tabBar_index_icon.jpg",
+      "selectedIconPath": "./assets/images/Takamatsu_Tomori_tabBar_index_icon.jpg"
+    },{
+      "pagePath": "pages/menu/index",
+      "text":"菜单",
+      "iconPath": "./assets/images/Nagasaki_Soyo_tabBar_menu_icon.jpg",
+      "selectedIconPath": "./assets/images/Nagasaki_Soyo_tabBar_menu_icon.jpg"
+    },{
+      "pagePath": "pages/order/index",
+      "text":"点餐",
+      "iconPath": "./assets/images/Kaname_Rana_tabBar_order_icon.jpg",
+      "selectedIconPath": "./assets/images/Kaname_Rana_tabBar_order_icon.jpg"
+    },{
+      "pagePath": "pages/me/index",
+      "text":"我的",
+      "iconPath": "./assets/images/Chihaya_Anon_tabBar_me_icon.jpg",
+      "selectedIconPath": "./assets/images/Chihaya_Anon_tabBar_me_icon.jpg"
+    }]
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
