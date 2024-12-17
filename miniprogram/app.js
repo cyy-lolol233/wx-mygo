@@ -1,6 +1,17 @@
 // app.ts
 App({
-  globalData: {},
+  globalData: {
+    userInfo: {
+      avatarUrl: '',
+      nickName: ''
+    }
+  },
+  getNikeName(){
+   return wx.getStorageSync('nickname')
+  },
+  getAvatarUrl(){
+   return wx.getStorageSync('avatarUel')
+  },
   onLaunch() {
     wx.cloud.init();
     // 展示本地存储能力

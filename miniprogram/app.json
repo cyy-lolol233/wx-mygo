@@ -5,15 +5,18 @@
     "pages/order/index",
     "pages/me/index",
     "pages/web-view/index",
-    "pages/product/detail"
+    "pages/product/detail",
+    "pages/login/index",
+    "pages/login2/index"
 
   ],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "weixin",
+    "navigationBarTitleText": "罗森商店",
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "backgroundColor": "#fefefe"
+
 
   },
   "tabBar": {
