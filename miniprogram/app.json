@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/store/index",
     "pages/menu/index",
     "pages/order/index",
     "pages/me/index",
@@ -8,8 +9,20 @@
     "pages/product/detail",
     "pages/login/index",
     "pages/login2/index"
+    
+
 
   ],
+  "requiredPrivateInfos": [
+    "getLocation",
+    "choosePoi",
+    "chooseAddress"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于给您匹配最佳门店"
+    }
+  },
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "罗森商店",
@@ -28,13 +41,13 @@
       "iconPath": "./assets/images/Takamatsu_Tomori_tabBar_index_icon.jpg",
       "selectedIconPath": "./assets/images/Takamatsu_Tomori_tabBar_index_icon.jpg"
     },{
-      "pagePath": "pages/menu/index",
-      "text":"菜单",
+      "pagePath": "pages/store/index",
+      "text":"点餐",
       "iconPath": "./assets/images/Nagasaki_Soyo_tabBar_menu_icon.jpg",
       "selectedIconPath": "./assets/images/Nagasaki_Soyo_tabBar_menu_icon.jpg"
     },{
       "pagePath": "pages/order/index",
-      "text":"点餐",
+      "text":"订单",
       "iconPath": "./assets/images/Kaname_Rana_tabBar_order_icon.jpg",
       "selectedIconPath": "./assets/images/Kaname_Rana_tabBar_order_icon.jpg"
     },{

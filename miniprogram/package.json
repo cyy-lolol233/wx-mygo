@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "miniprogram-computed": "^6.0.2",
+    "mobx-miniprogram": "^6.12.3",
+    "mobx-miniprogram-bindings": "^5.0.0"
+  }
+}
