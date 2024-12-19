@@ -44,6 +44,16 @@ Page({
      })
    })
   },
+  onMenuCardClick() {
+    wx.switchTab({
+      url: '/pages/store/index',
+    })
+  },
+  onArticleClick() {
+    wx.navigateTo({
+      url: '/pages/web-view/index?url=https://baidu.com',
+    })
+  },
 
 onShow(){
   this.loadMemberInfo();

@@ -1,2 +1,70 @@
-<!--pages/me/index.wxml-->
-<text>pages/me/index.wxml</text>
+<view class="page">
+  <view class="user-area">
+    <view class="user-box">
+      <image class="avatar" src="../../assets/images/vip_default_icon.jpg"></image>
+      <view class="name">{{ nickname ? nickname :  '登录获得更多会员权益'}}</view>
+    </view>
+    <view wx:if="{{ !nickname }}" class="login-btn" bindtap="login">授权登录</view>
+  </view>
+  <view class="card-container">
+    <view class="card">
+      <view class="meta">
+        <view class="count">54</view>
+        <view class="name">积分</view>
+      </view>
+      <image class="icon" src="../../assets/images/coin_icon.png"></image>
+    </view>
+    <view class="card">
+      <view class="meta">
+        <view class="count">54</view>
+        <view class="name">优惠券</view>
+      </view>
+      <image class="icon" src="../../assets/images/me-coupon.png"></image>
+    </view>
+  </view>
+
+  <view class="list-items">
+    <view class="item">
+         <view class="content">
+          <image class="icon" src="../../assets/images/qr-code.png"></image>
+          <view class="label">兑换码</view>
+         </view>
+         <view class="left-arrow">></view>
+    </view>
+    <view class="item" bindtap="gotoCustomPage" data-code="privacy">
+         <view class="content">
+          <image class="icon" src="../../assets/images/lock.png"></image>
+          <view class="label"  >隐私政策</view>
+         </view>
+         <view class="left-arrow">></view>
+    </view>
+    <view class="item"  bindtap="gotoCustomPage" data-code="agreement">
+         <view class="content">
+          <image class="icon" src="../../assets/images/paper.png"></image>
+          <view class="label">用户协议</view>
+         </view>
+         <view class="left-arrow">></view>
+    </view>
+    <view class="item" bindtap="gotoCustomPage" data-code="xuke">
+         <view class="content">
+          <image class="icon" src="../../assets/images/xuke.png"></image>
+          <view class="label">经营信息公示</view>
+         </view>
+         <view class="left-arrow">></view>
+    </view>
+  </view>
+
+  <view class="list-items app-download">
+    <view class="item">
+         <view class="content">
+          <image class="icon" mode="aspectFit" src="../../assets/images/logo.png"></image>
+          <view class="label">罗森APP</view>
+         </view>
+         <view class="left-arrow">
+          <view class="tips">下载APP体验更佳</view>
+          >
+         </view>
+    </view>
+    </view>
+
+</view>

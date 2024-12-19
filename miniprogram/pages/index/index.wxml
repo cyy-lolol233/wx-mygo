@@ -4,7 +4,7 @@
    <view class="swiper-container">
     <swiper wx:if="{{swiperList.length}}" bindchange="onSwiperChange">
       <swiper-item wx:for="{{swiperList}}" wx:key="index">
-        <image bind:tap="gotoLogin" data-item="{{item}}" mode="aspectFill" src="{{item.imageUri}}"></image>
+        <image bind:tap="onSwiperTab" data-item="{{item}}" mode="aspectFill" src="{{item.imageUri}}"></image>
       </swiper-item>
     </swiper> 
     <view class="dots">
@@ -28,4 +28,24 @@
      </view>
      <view wx:if="{{!isLogin}}" class="login-btn" bindtap="gotoLogin">授权登录</view>
    </view>
+    <!--会员区域-->
+    <view class="menu-banner">
+      <view class="location">
+        <image src="../../assets/images/menu.png"></image>
+        <view class="name">{{ nearbyStore ? nearbyStore.name : '潘水店' }}</view>
+      </view>
+      <image class="menu-card" src="../../assets/images/menu-banner.jpg" bindtap="onMenuCardClick"></image>
+    </view>
+
+    <view class="banner-list">
+      <image class="banner" src="../../assets/images/banner-1.jpg" bind:tap="onArticleClick">
+      </image>
+      <image class="banner" src="../../assets/images/banner-2.jpg">
+      </image>
+      <image class="banner" src="../../assets/images/banner-3.jpg">
+      </image>
+    </view>
+
 </view>
+
+
