@@ -9,7 +9,8 @@ Page({
   data: {
      swiperList:[], 
       current:0,
-      isLogin:false
+      isLogin:false,
+      userinfo:null
   },
 
    onSwiperChange(e){
@@ -60,9 +61,10 @@ onShow(){
 },
   
   loadMemberInfo(){
-    if(wx.getStorageSync('nickname')){
+    if(wx.getStorageSync('user')){
       this.setData({
-        isLogin: true
+        isLogin: true,
+        userinfo:wx.getStorageSync('user')
       })
     }
   },

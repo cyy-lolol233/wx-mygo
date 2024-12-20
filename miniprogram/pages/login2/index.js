@@ -1,6 +1,6 @@
 // pages/login2/index.js
-const app = getApp()
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+const { create,me} = require('../../api/user')
 Page({
 
   /**
@@ -16,7 +16,6 @@ Page({
     this.setData({
       avatarUrl,
     })
-    app.globalData.userInfo.avatarUrl = avatarUrl
     wx.setStorageSync('avatarUrl',avatarUrl )
   },
   getName(e){
@@ -25,17 +24,37 @@ Page({
    this.setData({
      nickname,
    })
-   app.globalData.userInfo.nickname = nickname
   // 将 nickname 存储到本地存储中
-  wx.setStorageSync('nickname', nickname)
   },
 
-  formSubmit(e){
-      wx.switchTab({
-        url: '/pages/index/index',
-      })
+  formSubmit(e) {
+    const { nickname } = this.data;
+    if (nickname) {
+      try {
+         create({ nickname }).then(response=>{
+            me().then(results=>{
+             console.log(results.data)
+             wx.setStorageSync('user', results.data[this.data.length-1])
+             wx.switchTab({
+              url: '/pages/index/index',
+            })
+           })
+         });
       
- },
+      } catch (error) {
+        console.error('Failed to create user:', error);
+        wx.showToast({
+          title: '提交失败，请重试',
+          icon: 'none'
+        });
+      }
+    } else {
+      wx.showToast({
+        title: '昵称不能为空',
+        icon: 'none'
+      });
+    }
+  },
 
 
   /**

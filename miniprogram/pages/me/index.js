@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-     nickname:''
+     isLogin:false,
+     userinfo:null
   },
 
   /**
@@ -15,14 +16,26 @@ Page({
 
   },
   onShow(){
-    const nickname = wx.getStorageSync('nickname')
-    this.setData({
-      nickname
+   this.loadMemberInfo()
+  },
+  gotoCustomPage(e) {
+    console.log(e)
+    const {code} = e.currentTarget.dataset
+    wx.navigateTo({
+      url: `/pages/gage/index?code=${code}`,
     })
   },
   login(){
     wx.navigateTo({
       url: '/pages/login/index',
     })
+  },
+  loadMemberInfo(){
+    if(wx.getStorageSync('user')){
+      this.setData({
+        isLogin: true,
+        userinfo:wx.getStorageSync('user')
+      })
+    }
   }
 })

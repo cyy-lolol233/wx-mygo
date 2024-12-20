@@ -16,7 +16,7 @@
      <view class="vip-box">
        <image src="../../assets/images/vip_default_icon.jpg"></image>
        <view class="meta">
-         <view class="title">{{isLogin?'罗森会员':'尊敬的用户'}}</view>
+         <view class="title">{{isLogin?userinfo.nickname:'尊敬的用户'}}</view>
          <progress-bar value="{{10}}" width="300rpx"/>
          <view class="tips">{{isLogin?'升级立享【升级礼包】等6项权益':'会员可享【限时优惠】等6项权益'}}</view> 
        </view>

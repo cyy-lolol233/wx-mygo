@@ -2,9 +2,9 @@
   <view class="user-area">
     <view class="user-box">
       <image class="avatar" src="../../assets/images/vip_default_icon.jpg"></image>
-      <view class="name">{{ nickname ? nickname :  '登录获得更多会员权益'}}</view>
+      <view class="name">{{ isLogin ? userinfo.nickname :  '登录获得更多会员权益'}}</view>
     </view>
-    <view wx:if="{{ !nickname }}" class="login-btn" bindtap="login">授权登录</view>
+    <view wx:if="{{ !isLogin }}" class="login-btn" bindtap="login">授权登录</view>
   </view>
   <view class="card-container">
     <view class="card">
@@ -34,7 +34,7 @@
     <view class="item" bindtap="gotoCustomPage" data-code="privacy">
          <view class="content">
           <image class="icon" src="../../assets/images/lock.png"></image>
-          <view class="label"  >隐私政策</view>
+          <view class="label" >隐私政策</view>
          </view>
          <view class="left-arrow">></view>
     </view>

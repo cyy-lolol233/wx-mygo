@@ -8,7 +8,8 @@
     "pages/web-view/index",
     "pages/product/detail",
     "pages/login/index",
-    "pages/login2/index"
+    "pages/login2/index",
+    "pages/gage/index"
     
 
 
