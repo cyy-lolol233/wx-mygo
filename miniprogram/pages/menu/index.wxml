@@ -10,10 +10,10 @@
   <view class="store-info">
         <view class="store-name" bindtap="switchCurrentStore">
           111
-          <image src="../../assets/image/arrow-right.svg"></image>
+          <image src="../../assets/images/arrow-right.svg"></image>
         </view>
         <view class="store-location">
-          <image class="location-icon" src="../../assets/icons/location.svg"></image>
+          <image class="location-icon" src="../../assets/images/location.svg"></image>
           <view class="distance-info">
             距离您 <view style="color: red; margin-left: 4rpx">1km</view>
           </view>

@@ -9,6 +9,7 @@ Page({
   data: {
     avatarUrl: defaultAvatarUrl,
     theme: wx.getSystemInfoSync().theme,
+    nickname:null
   },
   onChooseAvatar(e) {
     console.log(e)
@@ -24,17 +25,20 @@ Page({
    this.setData({
      nickname,
    })
+
   // 将 nickname 存储到本地存储中
   },
 
   formSubmit(e) {
+     console.log(e)
     const { nickname } = this.data;
     if (nickname) {
       try {
          create({ nickname }).then(response=>{
             me().then(results=>{
-             console.log(results.data)
-             wx.setStorageSync('user', results.data[this.data.length-1])
+             console.log(123)
+             wx.setStorageSync('user', results.data[results.data.length-1])
+
              wx.switchTab({
               url: '/pages/index/index',
             })
