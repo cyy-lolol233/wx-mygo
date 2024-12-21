@@ -1,9 +1,10 @@
 // pages/store/index.js
 const storeApi = require('../../api/store');
 const computedBehavior = require('miniprogram-computed').behavior
+import { userBehavior } from '../../behaviors/user-behavior'
 
 Page({
-  behaviors: [computedBehavior],
+  behaviors: [userBehavior,computedBehavior],
 
   computed: {
     markers(data) {
@@ -24,15 +25,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    latitude: 0,
-    longitude: 0,
     storeList: [],
-    currentStore:null,
     dict: {
       'OPENING': '营业中',
       'CLOSED': '已关闭'
     },
-    
     collapse: false,
     storeDetailShow: false
     },
@@ -94,19 +91,18 @@ Page({
   },
 
   fetchStoreList(){
-    if (this.data.storeListLoaded) {
-      return; // 如果已经加载过，则不再执行
-    }
     storeApi.list().then(res=>{
       const storeList =this.makeStoreList(res.data)
       console.log(res.data)
+      wx.setStorageSync('nearbyStore', res.data[0])
       this.setData({
         storeList
       })
+
     })
   },
   makeStoreList(data) {
-    const { latitude, longitude } = this.data;
+    const { latitude, longitude } = this.data.user.location;
     const R = 6371; // 地球半径，单位为公里
 
     function haversine(lat1, lon1, lat2, lon2) {
@@ -138,8 +134,6 @@ Page({
 
     return storeList;
   },
-
-
   goToCurrentLocation(){
     this.mapContext.moveToLocation()
   },
@@ -148,70 +142,21 @@ Page({
     const store = this.data.storeList[markerId-1]
     this.setData({
       storeDetailShow: true,
-      currentStore: store
     })
-    
+    this.setCurrentStore(store)
   },
   popupStoreDetail(e) {
     // console.log(e)
     const { store } = e.currentTarget.dataset
     this.setData({
       storeDetailShow: true,
-      currentStore: store
     })
+    this.setCurrentStore(store)
   },
   goToMenu() {
     wx.navigateTo({
       url: '/pages/menu/index'
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
   }
+
 })

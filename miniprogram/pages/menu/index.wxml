@@ -9,13 +9,13 @@
 <view class="menu-info">
   <view class="store-info">
         <view class="store-name" bindtap="switchCurrentStore">
-          111
+          {{ global.currentStore.name }}
           <image src="../../assets/images/arrow-right.svg"></image>
         </view>
         <view class="store-location">
           <image class="location-icon" src="../../assets/images/location.svg"></image>
           <view class="distance-info">
-            距离您 <view style="color: red; margin-left: 4rpx">1km</view>
+            距离您 <view style="color: red; margin-left: 4rpx">{{ global.currentStore.distance }}km</view>
           </view>
         </view>
   </view>
@@ -26,17 +26,93 @@
 </view>
 
 <view class="menu">
-  <sidebar list="{{ goodsList }}" bind:on-change="onSideBarChange" defaultCurrent="{{ sidebarCurrent }}"></sidebar>
-  <goods-list list="{{ goodsList }}" current="{{ currentCategoryIndex }}" bind:on-change="onGoodsListChange" bind:on-selected="onGoodsSelected">
-  <view slot="before">
+  <sidebar></sidebar>
+  <scroll-view class="menu-list" scroll-y show-scrollbar="{{ false }}" enhanced>
     <force-swiper
     list="{{ swiperList }}"
+    
     ></force-swiper>
-  </view>
-
-  </goods-list>
+    <view class="list">
+      <view class="section">
+        <view class="section-header">
+          双炫冰激凌
+        </view>
+        <view class="section-list">
+          <view class="item">
+            <image src="../../assets/images/product-image.jpg"></image>
+            <view class="info">
+              <view class="name">摩卡摇摇奶昔</view>
+              <view class="description">咖啡遇到冰激凌</view>
+              <view class="price">￥6</view>
+            </view>
+            <view class="add-icon">
+              <image src="../../assets/images/plus.svg"></image>
+            </view>
+          </view>
+          <view class="item">
+            <image src="../../assets/images/product-image.jpg"></image>
+            <view class="info">
+              <view class="name">春日饮</view>
+              <view class="description">某少女乐队定制饮品，是猫猫的最爱</view>
+              <view class="price">￥6</view>
+            </view>
+            <view class="add-icon">
+              <image src="../../assets/images/plus.svg"></image>
+            </view>
+          </view>
+          <view class="item">
+            <image src="../../assets/images/product-image.jpg"></image>
+            <view class="info">
+              <view class="name">摩卡摇摇奶昔</view>
+              <view class="description">某少女乐队定制饮品，是猫猫的最爱</view>
+              <view class="price">￥6</view>
+            </view>
+            <view class="add-icon">
+              <image src="../../assets/images/plus.svg"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="section">
+        <view class="section-header">
+          双炫冰激凌
+        </view>
+        <view class="section-list">
+          <view class="item">
+            <image src="../../assets/images/product-image.jpg"></image>
+            <view class="info">
+              <view class="name">摩卡摇摇奶昔</view>
+              <view class="description">咖啡遇到冰激凌</view>
+              <view class="price">￥6</view>
+            </view>
+            <view class="add-icon">
+              <image src="../../assets/images/plus.svg"></image>
+            </view>
+          </view>
+          <view class="item">
+            <image src="../../assets/images/product-image.jpg"></image>
+            <view class="info">
+              <view class="name">摩卡摇摇奶昔</view>
+              <view class="description">咖啡遇到冰激凌</view>
+              <view class="price">￥6</view>
+            </view>
+            <view class="add-icon">
+              <image src="../../assets/images/plus.svg"></image>
+            </view>
+          </view>
+          <view class="item">
+            <image src="../../assets/images/product-image.jpg"></image>
+            <view class="info">
+              <view class="name">摩卡摇摇奶昔</view>
+              <view class="description">咖啡遇到冰激凌</view>
+              <view class="price">￥6</view>
+            </view>
+            <view class="add-icon">
+              <image src="../../assets/images/plus.svg"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
 </view>
-<cart-bar ></cart-bar>
-<dialog show="{{ goodsDialogShow }}">
-   <goods-detail goods="{{ chart.selectedGoods }}"></goods-detail>
-</dialog>

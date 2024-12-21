@@ -16,17 +16,17 @@
      <view class="vip-box">
        <image src="../../assets/images/vip_default_icon.jpg"></image>
        <view class="meta">
-         <view class="title">{{isLogin?userinfo.nickname:'尊敬的用户'}}</view>
+         <view class="title">{{user.isLogin?user.nickname:'尊敬的用户'}}</view>
          <progress-bar value="{{10}}" width="300rpx"/>
-         <view class="tips">{{isLogin?'升级立享【升级礼包】等6项权益':'会员可享【限时优惠】等6项权益'}}</view> 
+         <view class="tips">{{user.isLogin?'升级立享【升级礼包】等6项权益':'会员可享【限时优惠】等6项权益'}}</view> 
        </view>
      </view>
 
-     <view wx:if="{{isLogin}}" class="coin-box">
+     <view wx:if="{{user.isLogin}}" class="coin-box">
        <image mode="aspectFill" src="../../assets/images/coin_icon.png"></image>
        <view class="currency">51</view>
      </view>
-     <view wx:if="{{!isLogin}}" class="login-btn" bindtap="gotoLogin">授权登录</view>
+     <view wx:if="{{!user.isLogin}}" class="login-btn" bindtap="gotoLogin">授权登录</view>
    </view>
     <!--会员区域-->
     <view class="menu-banner">

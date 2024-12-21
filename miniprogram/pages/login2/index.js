@@ -1,8 +1,13 @@
 // pages/login2/index.js
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 const { create,me} = require('../../api/user')
-Page({
+import { userBehavior } from "../../behaviors/user-behavior";
 
+
+
+
+Page({
+  behaviors:[userBehavior],
   /**
    * 页面的初始数据
    */
@@ -11,6 +16,7 @@ Page({
     theme: wx.getSystemInfoSync().theme,
     nickname:null
   },
+ 
   onChooseAvatar(e) {
     console.log(e)
     const { avatarUrl } = e.detail
@@ -21,11 +27,11 @@ Page({
   },
   getName(e){
     console.log(e)
-    nickname = e.detail.value
+    const nickname = e.detail.value
+    console.log(nickname)
    this.setData({
-     nickname,
+     nickname:nickname,
    })
-
   // 将 nickname 存储到本地存储中
   },
 
@@ -36,12 +42,13 @@ Page({
       try {
          create({ nickname }).then(response=>{
             me().then(results=>{
-             console.log(123)
              wx.setStorageSync('user', results.data[results.data.length-1])
-
-             wx.switchTab({
+              this.updateNickName(nickname)
+              this.updateLocation(wx.getStorageSync('location'))
+            wx.reLaunch({
               url: '/pages/index/index',
             })
+         
            })
          });
       

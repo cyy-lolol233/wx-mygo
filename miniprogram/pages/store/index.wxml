@@ -32,7 +32,7 @@
     <view wx:if="{{ !storeList.length }}" class="empty">抱歉附近暂时没有店</view>
   </scroll-view>
 
-  <page-container wx:if="{{ currentStore }}" show="{{ storeDetailShow }}" round position="bottom" class="store-detail">
+  <page-container wx:if="{{ global.currentStore }}" show="{{ storeDetailShow }}" round position="bottom" class="store-detail">
     <view class="notification">
       <image class="icon" src="../../assets/images/speaker.png"></image>
       <view class="info">我们的门店很多，千万不要选错哦~</view>
@@ -40,16 +40,16 @@
     <view class="container">
       <view class="header-area">
         <view class="info">
-          <view class="title">{{ currentStore.name }}</view>
-          <view class="address">{{ currentStore.address }}</view>
+          <view class="title">{{ global.currentStore.name }}</view>
+          <view class="address">{{ global.currentStore.address }}</view>
         </view>
         <view class="distance">
-          距离<view style="color: black;">{{ currentStore.distance }}km</view>
+          距离<view style="color: black;">{{ global.currentStore.distance }}km</view>
         </view>
       </view>
 
 
-      <map id="store-detail-map" class="store-detail-map" latitude="{{currentStore.latitude}}" longitude="{{currentStore.attitude}}" markers="{{ markers }}">
+      <map id="store-detail-map" class="store-detail-map" latitude="{{global.currentStore.latitude}}" longitude="{{global.currentStore.attitude}}" markers="{{ markers }}">
       </map>
 
       <button class="menu-btn" bindtap="goToMenu">进入菜单</button>
